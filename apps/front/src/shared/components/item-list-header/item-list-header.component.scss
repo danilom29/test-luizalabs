@@ -1,0 +1,15 @@
+header {
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 2.5rem;
+  }
+  mat-checkbox {
+    margin-left: 1em;
+    margin-bottom: 2em;
+  }
+}

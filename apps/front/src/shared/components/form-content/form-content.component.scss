@@ -1,0 +1,19 @@
+:host ::ng-deep .btn-submit {
+  margin-left: 1em;
+}
+
+:host ::ng-deep div.content-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host ::ng-deep div.action {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.content-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}

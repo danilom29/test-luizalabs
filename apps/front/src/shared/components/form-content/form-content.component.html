@@ -1,0 +1,10 @@
+<div class="content-title">
+  <button mat-icon-button color="warn" [routerLink]="router">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <test-luizalabs-title [description]="title"></test-luizalabs-title>
+</div>
+<mat-card>
+  <ng-content></ng-content>
+  <ng-content select="button.btn-submit"></ng-content>
+</mat-card>

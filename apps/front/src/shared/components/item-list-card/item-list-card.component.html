@@ -1,0 +1,38 @@
+<mat-card class="example-item-detail">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="editar/{{ id }}">
+      <mat-icon>edit</mat-icon>
+      Editar
+    </button>
+    <button mat-menu-item (click)="handleDelete(id)">
+      <mat-icon>delete</mat-icon>
+      Excluir
+    </button>
+  </mat-menu>
+  <mat-card-header>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="options-btn">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <mat-card-content class="content-item-card">
+    <section class="box-1">
+      <mat-checkbox
+        (click)="$event.stopPropagation()"
+        [checked]="selection.isSelected(id)"
+        (change)="selection.toggle(id); selected.emit(selection.selected)"
+      >
+      </mat-checkbox>
+    </section>
+    <section class="box-2">
+      <mat-card-title>
+        <span *ngIf="title" class="span-ellipsis-rows">{{ title }}</span>
+      </mat-card-title>
+      <mat-card-subtitle class="subtitle" [matTooltip]="subtitle" *ngIf="subtitle">
+        <span class="span-ellipsis-one">
+          {{ subtitle }}
+        </span>
+      </mat-card-subtitle>
+    </section>
+  </mat-card-content>
+</mat-card>

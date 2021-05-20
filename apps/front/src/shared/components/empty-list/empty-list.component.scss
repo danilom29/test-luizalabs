@@ -1,0 +1,17 @@
+.empty-list-msg {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  margin-top: 5em;
+
+  mat-icon {
+    transform: scale(3);
+  }
+
+  h2 {
+    font-weight: 700;
+    margin-top: 3rem;
+    text-align: center;
+    color: #0000008a;
+  }
+}

@@ -1,0 +1,17 @@
+<h1>{{ data.headerTitle }}</h1>
+<button (click)="dialogRef.close()" mat-icon-button aria-label="Fechar botão">
+  <mat-icon>close</mat-icon>
+</button>
+<div class="dialog-content">
+  <mat-dialog-content>
+    <section [innerHTML]="data.text"></section>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>
+      {{ data.rejectButtonText || 'Não' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="true" class="success">
+      {{ data.acceptButtonText }}
+    </button>
+  </mat-dialog-actions>
+</div>

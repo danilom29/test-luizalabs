@@ -1,0 +1,9 @@
+<main class="content">
+  <cdk-virtual-scroll-viewport [itemSize]="10" style="flex-grow: 1">
+    <section class="scroll-content-wrapper">
+      <ng-content></ng-content>
+      <ng-content></ng-content>
+      <app-empty-list class="box-empty" *ngIf="!dataSource?.length"></app-empty-list>
+    </section>
+  </cdk-virtual-scroll-viewport>
+</main>

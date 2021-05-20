@@ -1,4 +1,19 @@
 # Add files here to ignore them from prettier formatting
 
+.eslintignore
+.editorconfig
+.env
+.env-example
+.gitignore
+.prettierignore
+/apps/.gitkeep
+/apps/api/src/app/.gitkeep
+/apps/api/src/assets/.gitkeep
+/apps/front/.browserslistrc
+/apps/front/src/assets/*
+/apps/front/src/favicon.ico
+/libs/.gitkeep
+/tools/generators/.gitkeep
+tslint-to-eslint-config.log
 /dist
 /coverage

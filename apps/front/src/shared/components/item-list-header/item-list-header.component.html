@@ -1,0 +1,14 @@
+<header>
+  <section>
+    <test-luizalabs-title [description]="title" [icon]="iconTitle"></test-luizalabs-title>
+  </section>
+
+  <mat-checkbox
+    *ngIf="dataSource.length"
+    (change)="$event ? masterToggle() : null"
+    [checked]="selection.hasValue() && isAllSelected()"
+    [indeterminate]="selection.hasValue() && !isAllSelected()"
+  >
+    Selecionar todos</mat-checkbox
+  >
+</header>

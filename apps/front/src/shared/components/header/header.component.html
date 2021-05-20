@@ -1,0 +1,16 @@
+<div class="container"></div>
+<div class="perfil">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Configurações">
+    <mat-icon>settings</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button class="menu-button" mat-menu-item routerLink="/clientes">
+      <mat-icon>description</mat-icon>
+      Clientes
+    </button>
+    <button class="menu-button" mat-menu-item routerLink="/produtos">
+      <mat-icon>account_box</mat-icon>
+      Produtos
+    </button>
+  </mat-menu>
+</div>
