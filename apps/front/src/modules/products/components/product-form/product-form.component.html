@@ -1,0 +1,47 @@
+<test-luizalabs-form-content [id]="id" [router]="'/produtos'" [title]="id ? 'Produto - Editar' : 'Produto - Cadastrar'">
+  <form [formGroup]="form">
+    <div class="full-width-input">
+      <mat-form-field appearance="legacy">
+        <input matInput name="name" type="text" formControlName="name" placeholder="Nome" />
+        <mat-error *ngIf="form.get('name').invalid">{{ form.get('name').errors.message }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="grid-input-form">
+      <mat-form-field appearance="legacy">
+        <input matInput type="text" formControlName="size" mask="000.000.000-00" placeholder="Tamanho" />
+        <mat-error *ngIf="form.get('size').invalid">{{ form.get('size').errors.message }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-select formControlName="origin" placeholder="Fabricação">
+          <mat-option value="Importado"> Importado </mat-option>
+          <mat-option value="Nacional"> Nacional </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('origin').invalid">{{ form.get('origin').errors.message }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <input
+          matInput
+          type="text"
+          formControlName="value"
+          placeholder="Valor"
+          currencyMask
+          [options]="{ prefix: 'R$ ', thousands: '', decimal: ',', align: 'left' }" />
+        <mat-error *ngIf="form.get('value').invalid">{{ form.get('value').errors.message }}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div class="action">
+    <button
+      mat-stroked-button
+      class="btn-submit"
+      [disabled]="form.invalid"
+      color="primary"
+      type="submit"
+      (click)="handleSaveOrUpdate()"
+    >
+      Salvar
+    </button>
+    <button mat-stroked-button color="basic" type="submit" routerLink="/produtos">Cancelar</button>
+  </div>
+</test-luizalabs-form-content>

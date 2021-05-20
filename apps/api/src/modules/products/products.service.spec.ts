@@ -40,7 +40,7 @@ describe('ProductsService', () => {
     value: 1.1,
     id: 1,
   };
-  const clients: IProduct[] = [product]
+  const clients: IProduct[] = [product];
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -127,7 +127,7 @@ describe('ProductsService', () => {
   });
 
   it('submitted should be true when delete product', async () => {
-    const returnMessage = { message: 'Cliente excluído com sucesso.' };
+    const returnMessage = { message: 'Produto excluído com sucesso.' };
     mockRepository.findOneOrFail.mockResolvedValue(product);
     mockRepository.softDelete.mockResolvedValue(product);
     await expect(service.delete(id)).resolves.toEqual(returnMessage);
@@ -135,7 +135,7 @@ describe('ProductsService', () => {
 
   it('should return an message error when product to be deleted does not exist', async () => {
     mockRepository.findOne.mockResolvedValue(null);
-    mockRepository.findOneOrFail.mockRejectedValue(new HttpException('Não foi possível excluir o cliente.', HttpStatus.BAD_GATEWAY));
-    await expect(service.delete(id)).rejects.toThrow('Não foi possível excluir o cliente.');
+    mockRepository.findOneOrFail.mockRejectedValue(new HttpException('Não foi possível excluir o produto.', HttpStatus.BAD_GATEWAY));
+    await expect(service.delete(id)).rejects.toThrow('Não foi possível excluir o produto.');
   });
 });

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ProductCreateDto } from './dto/product-create.dto';
@@ -22,11 +24,11 @@ export class ProductsService {
       throw new HttpException({ message: 'Erro ao cadastrar.' }, HttpStatus.BAD_REQUEST);
     }
   }
-  async findByName(name: string, id?:number): Promise<IProduct> {
+  async findByName(name: string, id?: number): Promise<IProduct> {
     try {
       const where: any = {
         name
-      }
+      };
       if (id) {
         where.id = Not(id);
       }
@@ -72,9 +74,9 @@ export class ProductsService {
       await this.productRepository.findOneOrFail(id);
       await this.productRepository.softDelete(id);
 
-      return { message: 'Cliente excluído com sucesso.' };
+      return { message: 'Produto excluído com sucesso.' };
     } catch (error) {
-      throw new HttpException({ message: 'Não foi possível excluir o cliente.' }, HttpStatus.NOT_FOUND);
+      throw new HttpException({ message: 'Não foi possível excluir o produto.' }, HttpStatus.NOT_FOUND);
     }
   }
 }

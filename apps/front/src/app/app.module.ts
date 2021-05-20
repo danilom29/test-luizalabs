@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientsModule } from '../modules/clients/clients.module';
+import { ProductsModule } from '../modules/products/products.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { ClientsModule } from '../modules/clients/clients.module';
     SharedModule,
     AppRoutingModule,
     ClientsModule,
+    ProductsModule,
   ],
   providers: [
     {

@@ -1,0 +1,21 @@
+<test-luizalabs-item-list-content *ngIf="products" [dataSource]="products">
+  <test-luizalabs-item-list-header
+    class="box-header"
+    [iconTitle]="'description'"
+    [title]="'Produtos'"
+    [dataSource]="products"
+    [selection]="selection"
+  >
+  </test-luizalabs-item-list-header>
+  <test-luizalabs-item-list-card
+    *ngFor="let item of products"
+    [id]="item.id"
+    [title]="item.name"
+    [selection]="selection"
+    (deleted)="deleted($event)"
+  >
+  </test-luizalabs-item-list-card>
+</test-luizalabs-item-list-content>
+
+<test-luizalabs-item-list-footer (deleted)="deletedMulti()" [selection]="selection">
+</test-luizalabs-item-list-footer>
