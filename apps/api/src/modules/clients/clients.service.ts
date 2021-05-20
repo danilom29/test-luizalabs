@@ -5,6 +5,7 @@ import { Client } from './entities/client.entity';
 import { IClient } from './interface/client.interface';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Not } from 'typeorm';
+import { ClientUpdateDto } from './dto/client-update.dto';
 
 @Injectable()
 export class ClientsService {
@@ -71,6 +72,15 @@ export class ClientsService {
       return client;
     } catch (error) {
       throw new HttpException({ message: 'Cliente não encontrado.' }, HttpStatus.NOT_FOUND);
+    }
+  }
+  async update(clientDto: ClientUpdateDto, id: number): Promise<{ client: IClient; message: string }> {
+    try {
+      const client = await this.clientRepository.save({ ...clientDto, id });
+
+      return { client, message: 'Atualização realizada com sucesso!' };
+    } catch (error) {
+      throw new HttpException({ message: 'Erro ao atualizar.' }, HttpStatus.BAD_REQUEST);
     }
   }
 }

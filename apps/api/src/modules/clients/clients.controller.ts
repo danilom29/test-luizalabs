@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ClientsService } from './clients.service';
 import { ClientCreateDto } from './dto/client-create.dto';
+import { ClientUpdateDto } from './dto/client-update.dto';
 import { IClient } from './interface/client.interface';
 
 @Controller('clientes')
@@ -18,5 +19,9 @@ export class ClientsController {
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<IClient> {
     return await this.service.findOne(id);
+  }
+  @Put(':id')
+  async update(@Body() clientDto: ClientUpdateDto, @Param('id') id: number): Promise<{ client: IClient; message: string }> {
+    return await this.service.update(clientDto, id);
   }
 }
