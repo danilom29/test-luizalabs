@@ -25,7 +25,9 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "migration:create": "ts-node node_modules/typeorm/cli.js migration:create -n",
+    "migration:run": "ts-node node_modules/typeorm/cli.js migration:run"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +44,9 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/typeorm": "^7.1.5",
     "@nrwl/angular": "^12.3.4",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "mysql2": "^2.2.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
