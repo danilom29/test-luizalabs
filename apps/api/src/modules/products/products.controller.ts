@@ -21,7 +21,10 @@ export class ProductsController {
     return await this.service.findOne(id);
   }
   @Put(':id')
-  async update(@Body() productDto: ProductUpdateDto, @Param('id') id: number): Promise<{ product: IProduct; message: string }> {
+  async update(
+    @Body() productDto: ProductUpdateDto,
+    @Param('id') id: number
+  ): Promise<{ product: IProduct; message: string }> {
     return await this.service.update(productDto, id);
   }
   @Delete(':id')

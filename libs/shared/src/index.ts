@@ -4,7 +4,6 @@ export * from './lib/shared.module';
 export * from './enum/gender.enum';
 export * from './enum/origin.enum';
 
-
 //material design
 export * from './material/material.module';
 
@@ -20,4 +19,3 @@ export * from './interceptors/api.interceptor';
 
 //Validators
 export * from './validators/cpf.validator';
-

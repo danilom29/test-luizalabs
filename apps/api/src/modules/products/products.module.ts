@@ -5,11 +5,9 @@ import { ProductsService } from './products.service';
 import { Product } from './entities/product.entity';
 import { NameProductAlreadyExist } from './validate/name-already-exist.constraint';
 
-
-
 @Module({
   imports: [TypeOrmModule.forFeature([Product])],
   controllers: [ProductsController],
   providers: [ProductsService, NameProductAlreadyExist],
 })
-export class ProductsModule { }
+export class ProductsModule {}

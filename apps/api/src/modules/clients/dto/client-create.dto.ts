@@ -10,8 +10,7 @@ export class ClientCreateDto {
 
   @IsNotEmpty({ message: 'Campo CPF é obrigatório.' })
   @Validate(CpfClientAlreadyExist, {
-    message:
-      'Já existe um client registrado com o CPF fornecido. Por favor altere o CPF para realizar a operação.',
+    message: 'Já existe um client registrado com o CPF fornecido. Por favor altere o CPF para realizar a operação.',
   })
   cpf: string;
 

@@ -27,7 +27,7 @@ export class ClientsService {
   async findByEmail(email: string, id?: number): Promise<IClient> {
     try {
       const where: any = {
-        email
+        email,
       };
       if (id) {
         where.id = Not(id);
@@ -44,7 +44,7 @@ export class ClientsService {
   async findByCpf(cpf: number, id?: number): Promise<IClient> {
     try {
       const where: any = {
-        cpf
+        cpf,
       };
       if (id) {
         where.id = Not(id);

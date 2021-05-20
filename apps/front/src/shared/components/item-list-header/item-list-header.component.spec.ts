@@ -15,13 +15,7 @@ describe('ItemListHeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ItemListHeaderComponent, TitleComponent],
-      imports: [
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        NoopAnimationsModule,
-        MaterialModule,
-        HttpClientModule,
-      ],
+      imports: [BrowserAnimationsModule, ReactiveFormsModule, NoopAnimationsModule, MaterialModule, HttpClientModule],
       providers: [DefaultCrudService],
     }).compileComponents();
   });

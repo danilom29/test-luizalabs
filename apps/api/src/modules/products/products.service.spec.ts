@@ -111,7 +111,10 @@ describe('ProductsService', () => {
   it('submitted should be true when update product', async () => {
     mockRepository.findOneOrFail.mockResolvedValue(product);
     mockRepository.save.mockResolvedValue(product);
-    await expect(service.update(clientUpdateDto, id)).resolves.toEqual({ product, message: 'Atualização realizada com sucesso!' });
+    await expect(service.update(clientUpdateDto, id)).resolves.toEqual({
+      product,
+      message: 'Atualização realizada com sucesso!',
+    });
   });
 
   it('submitted should be error when update product', async () => {
@@ -135,7 +138,9 @@ describe('ProductsService', () => {
 
   it('should return an message error when product to be deleted does not exist', async () => {
     mockRepository.findOne.mockResolvedValue(null);
-    mockRepository.findOneOrFail.mockRejectedValue(new HttpException('Não foi possível excluir o produto.', HttpStatus.BAD_GATEWAY));
+    mockRepository.findOneOrFail.mockRejectedValue(
+      new HttpException('Não foi possível excluir o produto.', HttpStatus.BAD_GATEWAY)
+    );
     await expect(service.delete(id)).rejects.toThrow('Não foi possível excluir o produto.');
   });
 });

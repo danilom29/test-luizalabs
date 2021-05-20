@@ -6,8 +6,7 @@ export class ProductCreateDto {
   @IsNotEmpty({ message: 'Campo Nome é obrigatório.' })
   @MaxLength(255, { message: 'Campo Nome deve conter até 255 caractéres.' })
   @Validate(NameProductAlreadyExist, {
-    message:
-      'Já existe um produto registrado com o Nome fornecido. Por favor altere o Nome para realizar a operação.',
+    message: 'Já existe um produto registrado com o Nome fornecido. Por favor altere o Nome para realizar a operação.',
   })
   name: string;
 

@@ -10,11 +10,7 @@ import { LoaderFeedbackService } from '@test-luizalabs/shared';
 })
 export class DefaultCrudService {
   private url = '@test-luizalabs-api/';
-  constructor(
-    private http: HttpClient,
-    public snackBar: MatSnackBar,
-    private loaderService: LoaderFeedbackService,
-  ) {}
+  constructor(private http: HttpClient, public snackBar: MatSnackBar, private loaderService: LoaderFeedbackService) {}
   httpGet(endPoint: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.loaderService.addLoad('httpGet');

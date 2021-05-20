@@ -148,10 +148,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/front/src/**/*.ts",
-              "apps/front/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/front/src/**/*.ts", "apps/front/src/**/*.html"]
           }
         },
         "test": {
@@ -181,10 +178,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/src/**/*.ts",
-              "libs/shared/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/shared/src/**/*.ts", "libs/shared/src/**/*.html"]
           }
         }
       }

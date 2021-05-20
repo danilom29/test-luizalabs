@@ -6,11 +6,9 @@ import { Client } from './entities/client.entity';
 import { CpfClientAlreadyExist } from './validate/cpf-already-exist.constraint';
 import { EmailClientAlreadyExist } from './validate/email-already-exist.constraint';
 
-
-
 @Module({
   imports: [TypeOrmModule.forFeature([Client])],
   controllers: [ClientsController],
   providers: [ClientsService, EmailClientAlreadyExist, CpfClientAlreadyExist],
 })
-export class ClientsModule { }
+export class ClientsModule {}

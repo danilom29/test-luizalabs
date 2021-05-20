@@ -13,7 +13,7 @@ describe('ClientsService', () => {
     email: 'teste@email.com',
     gender: 'Masculino',
     name: 'Teste',
-    id: 1
+    id: 1,
   };
   beforeEach(() => {
     TestBed.configureTestingModule({

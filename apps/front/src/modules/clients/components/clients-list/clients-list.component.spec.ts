@@ -21,7 +21,7 @@ describe('ClientsListComponent', () => {
     email: 'teste@email.com',
     gender: 'Masculino',
     name: 'Teste',
-    id: 1
+    id: 1,
   };
   const clients: IClient[] = [client];
 

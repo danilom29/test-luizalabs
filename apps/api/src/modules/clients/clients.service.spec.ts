@@ -25,7 +25,7 @@ describe('ClientsService', () => {
     email: 'teste@email.com',
     gender: 'Masculino',
     name: 'Teste',
-    id: 1
+    id: 1,
   };
   const clientCreateDto: ClientCreateDto = {
     cpf: '123445566',
@@ -111,7 +111,10 @@ describe('ClientsService', () => {
   it('submitted should be true when update client', async () => {
     mockRepository.findOneOrFail.mockResolvedValue(client);
     mockRepository.save.mockResolvedValue(client);
-    await expect(service.update(clientUpdateDto, id)).resolves.toEqual({ client, message: 'Atualização realizada com sucesso!' });
+    await expect(service.update(clientUpdateDto, id)).resolves.toEqual({
+      client,
+      message: 'Atualização realizada com sucesso!',
+    });
   });
 
   it('submitted should be error when update client', async () => {
@@ -135,7 +138,9 @@ describe('ClientsService', () => {
 
   it('should return an message error when client to be deleted does not exist', async () => {
     mockRepository.findOne.mockResolvedValue(null);
-    mockRepository.findOneOrFail.mockRejectedValue(new HttpException('Não foi possível excluir o cliente.', HttpStatus.BAD_GATEWAY));
+    mockRepository.findOneOrFail.mockRejectedValue(
+      new HttpException('Não foi possível excluir o cliente.', HttpStatus.BAD_GATEWAY)
+    );
     await expect(service.delete(id)).rejects.toThrow('Não foi possível excluir o cliente.');
   });
 });

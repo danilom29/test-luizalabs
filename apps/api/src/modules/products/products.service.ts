@@ -27,7 +27,7 @@ export class ProductsService {
   async findByName(name: string, id?: number): Promise<IProduct> {
     try {
       const where: any = {
-        name
+        name,
       };
       if (id) {
         where.id = Not(id);

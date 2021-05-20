@@ -21,7 +21,10 @@ export class ClientsController {
     return await this.service.findOne(id);
   }
   @Put(':id')
-  async update(@Body() clientDto: ClientUpdateDto, @Param('id') id: number): Promise<{ client: IClient; message: string }> {
+  async update(
+    @Body() clientDto: ClientUpdateDto,
+    @Param('id') id: number
+  ): Promise<{ client: IClient; message: string }> {
     return await this.service.update(clientDto, id);
   }
   @Delete(':id')

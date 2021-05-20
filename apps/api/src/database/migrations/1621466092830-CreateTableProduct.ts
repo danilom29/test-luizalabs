@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateTableProduct1621466092830 implements MigrationInterface {
   private productTable = new Table({
@@ -24,7 +24,7 @@ export class CreateTableProduct1621466092830 implements MigrationInterface {
       {
         name: 'value',
         type: 'DECIMAL',
-        length: '18,2'
+        length: '18,2',
       },
       {
         name: 'origin',
