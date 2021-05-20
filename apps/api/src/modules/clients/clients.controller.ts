@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ClientsService } from './clients.service';
 import { ClientCreateDto } from './dto/client-create.dto';
 import { ClientUpdateDto } from './dto/client-update.dto';
@@ -23,5 +23,9 @@ export class ClientsController {
   @Put(':id')
   async update(@Body() clientDto: ClientUpdateDto, @Param('id') id: number): Promise<{ client: IClient; message: string }> {
     return await this.service.update(clientDto, id);
+  }
+  @Delete(':id')
+  async delete(@Param('id') id: number): Promise<{ message: string }> {
+    return await this.service.delete(id);
   }
 }

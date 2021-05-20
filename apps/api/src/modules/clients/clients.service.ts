@@ -76,11 +76,22 @@ export class ClientsService {
   }
   async update(clientDto: ClientUpdateDto, id: number): Promise<{ client: IClient; message: string }> {
     try {
+      await this.clientRepository.findOneOrFail(id);
       const client = await this.clientRepository.save({ ...clientDto, id });
 
       return { client, message: 'Atualização realizada com sucesso!' };
     } catch (error) {
       throw new HttpException({ message: 'Erro ao atualizar.' }, HttpStatus.BAD_REQUEST);
+    }
+  }
+  async delete(id: number): Promise<{ message: string }> {
+    try {
+      await this.clientRepository.findOneOrFail(id);
+      await this.clientRepository.softDelete(id);
+
+      return { message: 'Cliente excluído com sucesso.' };
+    } catch (error) {
+      throw new HttpException({ message: 'Não foi possível excluir o cliente.' }, HttpStatus.NOT_FOUND);
     }
   }
 }
