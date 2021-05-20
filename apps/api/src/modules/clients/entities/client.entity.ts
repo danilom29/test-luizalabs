@@ -12,7 +12,7 @@ export class Client {
   gender: string;
 
   @Column()
-  cpf: number;
+  cpf: string;
 
   @Column()
   email: string;

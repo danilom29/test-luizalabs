@@ -15,6 +15,13 @@ export class ApiInterceptor implements HttpInterceptor {
       });
     }
 
+    req = req.clone({
+      setHeaders: {
+        'Content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }
+    });
+
     return next.handle(req);
   }
 }

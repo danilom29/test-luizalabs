@@ -1,3 +1,13 @@
+.modal-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  margin: 0;
+}
+
 .dialog-content {
   display: flex;
   flex-direction: column;

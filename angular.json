@@ -88,7 +88,7 @@
             "tsConfig": "apps/front/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["apps/front/src/favicon.ico", "apps/front/src/assets"],
-            "styles": ["apps/front/src/styles.scss"],
+            "styles": ["libs/shared/src/style/styles.scss"],
             "scripts": []
           },
           "configurations": {

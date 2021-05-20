@@ -1,7 +1,7 @@
 export interface IClient {
   id?: number;
   name?: string;
-  cpf?: number;
+  cpf?: string;
   gender?: string;
   email?: string;
 }

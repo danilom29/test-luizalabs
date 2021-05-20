@@ -11,7 +11,10 @@
   display: flex;
   flex-direction: row-reverse;
 }
-
+.content-title, mat-card {
+  width: 80%;
+  margin: auto;
+}
 .content-title {
   display: flex;
   align-items: center;

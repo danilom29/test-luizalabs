@@ -12,12 +12,11 @@ export class ClientUpdateDto {
   name: string;
 
   @IsNotEmpty({ message: 'Campo CPF é obrigatório.' })
-  @IsInt({ message: 'CPF: Apenas números inteiros' })
   @Validate(CpfClientAlreadyExist, {
     message:
       'Já existe um client registrado com o CPF fornecido. Por favor altere o CPF para realizar a operação.',
   })
-  cpf: number;
+  cpf: string;
 
   @IsNotEmpty({ message: 'Campo Sexo é obrigatório.' })
   @IsEnum(Gender, { message: 'Valor inválido para o Sexo.' })
