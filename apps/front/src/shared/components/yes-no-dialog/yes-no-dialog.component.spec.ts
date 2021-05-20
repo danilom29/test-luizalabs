@@ -4,7 +4,6 @@ import { YesNoDialogComponent } from './yes-no-dialog.component';
 import { By } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ModalHeaderComponent } from '../modal-header/modal-header.component';
 
 describe('YesNoDialogComponent', () => {
   let component: YesNoDialogComponent;
@@ -16,7 +15,7 @@ describe('YesNoDialogComponent', () => {
 
   beforeEach(async(() => {
     void TestBed.configureTestingModule({
-      declarations: [YesNoDialogComponent, ModalHeaderComponent],
+      declarations: [YesNoDialogComponent],
       imports: [MatIconModule, MatDialogModule],
       providers: [
         {
@@ -38,14 +37,6 @@ describe('YesNoDialogComponent', () => {
       text: 'Você realmente deseja excluir?',
     };
     fixture.detectChanges();
-  });
-  it('should show data into html', () => {
-    fixture.detectChanges();
-    const textH3: HTMLInputElement = fixture.debugElement.query(By.css('h3')).nativeElement as HTMLInputElement;
-    const buttonSucess: HTMLButtonElement = fixture.debugElement.query(By.css('.success'))
-      .nativeElement as HTMLButtonElement;
-    void expect(textH3.textContent).toEqual(data.text);
-    void expect(buttonSucess.textContent).toContain('Sim');
   });
 
   it('should dispatch close event with confirmation', () => {

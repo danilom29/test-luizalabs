@@ -1,23 +1,26 @@
+import { ClientsService } from './clients.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ApolloTestingModule } from 'apollo-angular/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { ISector } from './interface/sector.interface';
-import { SectorsService } from './sectors.service';
 import { TestBed } from '@angular/core/testing';
 import { DefaultCrudService } from '../../shared/services/defaultCrud/default-crud.service';
+import { IClient } from 'apps/api/src/modules/clients/interface/client.interface';
 
-describe('SectorsService', () => {
-  let service: SectorsService;
+describe('ClientsService', () => {
+  let service: ClientsService;
   let crudService: DefaultCrudService;
-  const sector: ISector = {
-    name: 'teste',
+  const sector: IClient = {
+    cpf: '123445566',
+    email: 'teste@email.com',
+    gender: 'Masculino',
+    name: 'Teste',
+    id: 1
   };
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, ApolloTestingModule, MatSnackBarModule],
+      imports: [HttpClientModule, MatSnackBarModule],
     });
 
-    service = TestBed.inject(SectorsService);
+    service = TestBed.inject(ClientsService);
     crudService = TestBed.inject(DefaultCrudService);
   });
   it('should be created', () => {
@@ -50,11 +53,5 @@ describe('SectorsService', () => {
     const spy = spyOn(crudService, 'httpDelete').and.callFake(() => Promise.resolve({ message: 'Deletado!' }));
     void service.delete(1);
     void expect(spy).toHaveBeenCalled();
-  });
-
-  it('should be getSectors', () => {
-    spyOn(crudService, 'graphql').and.callFake(() => Promise.resolve([]));
-    void service.getSectors({ name: '' });
-    void expect(service.getSectors({ name: '' })).toBeTruthy();
   });
 });

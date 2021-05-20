@@ -14,7 +14,7 @@ export class ItemListCardComponent implements OnInit {
   @Input() selection = new SelectionModel<number>(true, []);
   @Output() deleted: EventEmitter<any> = new EventEmitter();
   @Output() selected: EventEmitter<any> = new EventEmitter();
-  constructor(private dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 

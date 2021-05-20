@@ -17,7 +17,11 @@ describe('ClientsListComponent', () => {
   let service: ClientsService;
   let fixture: ComponentFixture<ClientsListComponent>;
   const client: IClient = {
+    cpf: '123445566',
+    email: 'teste@email.com',
+    gender: 'Masculino',
     name: 'Teste',
+    id: 1
   };
   const clients: IClient[] = [client];
 

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClientsModule } from '../modules/clients/clients.module';
 import { ProductsModule } from '../modules/products/products.module';
+import { NtmCoreModule } from '@ntm-al/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { ProductsModule } from '../modules/products/products.module';
     MaterialModule,
     SharedModule,
     AppRoutingModule,
+    NtmCoreModule,
     ClientsModule,
     ProductsModule,
   ],

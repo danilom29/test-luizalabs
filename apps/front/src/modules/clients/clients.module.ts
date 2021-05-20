@@ -9,6 +9,7 @@ import { ClientFormComponent } from '../clients/components/client-form/client-fo
 import { ClientsListComponent } from '../clients/components/clients-list/clients-list.component';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { NtmCoreModule } from '@ntm-al/angular';
 
 @NgModule({
   declarations: [ClientsListComponent, ClientFormComponent],
@@ -19,6 +20,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ClientsRoutingModule,
     HttpClientModule,
     SharedModule,
+    NtmCoreModule,
     NgxMaskModule.forRoot(),
   ],
   providers: [ClientsService],

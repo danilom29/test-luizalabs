@@ -13,7 +13,6 @@ import { TitleComponent } from './components/title/title.component';
 import { EmptyListComponent } from './components/empty-list/empty-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MaterialModule } from '@test-luizalabs/shared';
-import { NtmCoreModule } from '@ntm-al/angular';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -27,7 +26,7 @@ import { NtmCoreModule } from '@ntm-al/angular';
     EmptyListComponent,
     PageNotFoundComponent,
   ],
-  imports: [CommonModule, MaterialModule, RouterModule, ReactiveFormsModule, NtmCoreModule],
+  imports: [CommonModule, MaterialModule, RouterModule, ReactiveFormsModule],
   exports: [
     HeaderComponent,
     ItemListContentComponent,

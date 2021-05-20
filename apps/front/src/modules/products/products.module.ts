@@ -9,6 +9,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { NtmCoreModule } from '@ntm-al/angular';
 
 @NgModule({
   declarations: [ProductsListComponent, ProductFormComponent],
@@ -20,6 +21,7 @@ import { NgxCurrencyModule } from 'ngx-currency';
     SharedModule,
     ProductsRoutingModule,
     NgxCurrencyModule,
+    NtmCoreModule,
   ],
   providers: [ProductsService],
 })

@@ -21,26 +21,26 @@ describe('ClientsService', () => {
     softDelete: jest.fn(),
   };
   const client: IClient = {
-    cpf: 123445566,
+    cpf: '123445566',
     email: 'teste@email.com',
     gender: 'Masculino',
     name: 'Teste',
     id: 1
   };
   const clientCreateDto: ClientCreateDto = {
-    cpf: 123445566,
+    cpf: '123445566',
     email: 'teste@email.com',
     gender: 'Masculino',
     name: 'Teste',
   };
   const clientUpdateDto: ClientUpdateDto = {
-    cpf: 123445566,
+    cpf: '123445566',
     email: 'teste@email.com',
     gender: 'Masculino',
     name: 'Teste',
     id: 1,
   };
-  const clients: IClient[] = [client]
+  const clients: IClient[] = [client];
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
