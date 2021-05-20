@@ -55,4 +55,22 @@ export class ClientsService {
       throw new HttpException(error, HttpStatus.BAD_REQUEST);
     }
   }
+  async findAll(): Promise<IClient[]> {
+    try {
+      const clients = await this.clientRepository.find();
+
+      return clients;
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
+  }
+  async findOne(id: number): Promise<IClient> {
+    try {
+      const client = await this.clientRepository.findOneOrFail(id);
+
+      return client;
+    } catch (error) {
+      throw new HttpException({ message: 'Cliente não encontrado.' }, HttpStatus.NOT_FOUND);
+    }
+  }
 }
