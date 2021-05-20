@@ -1,4 +1,3 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Client } from 'apps/api/src/modules/clients/entities/client.entity';
 import { Product } from 'apps/api/src/modules/products/entities/product.entity';

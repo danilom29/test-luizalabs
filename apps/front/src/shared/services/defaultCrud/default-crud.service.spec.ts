@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TestBed } from '@angular/core/testing';
 
@@ -9,47 +10,40 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 describe('DefaultCrudService', () => {
   let service: DefaultCrudService;
   let httpClient: HttpClient;
-  let fullEndpointSpy;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, MatSnackBarModule, NoopAnimationsModule],
     });
     service = TestBed.inject(DefaultCrudService);
     httpClient = TestBed.inject(HttpClient);
-    fullEndpointSpy = '';
   });
 
   it('should call a http get function', async () => {
     const httpClientGetSpyOn = spyOn(httpClient, 'get').and.returnValue(of([]));
 
     await service.httpGet('auth');
-    void expect(fullEndpointSpy).toHaveBeenCalled();
     void expect(httpClientGetSpyOn).toHaveBeenCalled();
   });
   it('should call a http post function', async () => {
     const httpClientPostSpyOn = spyOn(httpClient, 'post').and.returnValue(of([]));
     await service.httpPost('auth1', {});
-    void expect(fullEndpointSpy).toHaveBeenCalled();
     void expect(httpClientPostSpyOn).toHaveBeenCalled();
   });
   it('should call a http post function and return a object', async () => {
     const httpClientPostSpyOn = spyOn(httpClient, 'post').and.returnValue(of({ message: 'Salvo!' }));
     await service.httpPost('auth1', {}).then(() => {});
-    void expect(fullEndpointSpy).toHaveBeenCalled();
     void expect(httpClientPostSpyOn).toHaveBeenCalled();
   });
   it('should call a http put function', async () => {
     const httpClientPutSpyOn = spyOn(httpClient, 'put').and.returnValue(of([]));
     await service.httpPut('auth', {});
 
-    void expect(fullEndpointSpy).toHaveBeenCalled();
     void expect(httpClientPutSpyOn).toHaveBeenCalled();
   });
   it('should call a http delete function', async () => {
     const httpClientDeleteSpyOn = spyOn(httpClient, 'delete').and.returnValue(of([]));
     await service.httpDelete('auth');
 
-    void expect(fullEndpointSpy).toHaveBeenCalled();
     void expect(httpClientDeleteSpyOn).toHaveBeenCalled();
   });
   it('should throw a error when call a http get function', async () => {
@@ -63,7 +57,6 @@ describe('DefaultCrudService', () => {
         message: 'error',
       });
     });
-    void expect(fullEndpointSpy).toHaveBeenCalled();
   });
   it('should throw a error when call a http get function', async () => {
     spyOn(httpClient, 'get').and.returnValue(
@@ -76,7 +69,6 @@ describe('DefaultCrudService', () => {
         error: { message: 'error' },
       });
     });
-    void expect(fullEndpointSpy).toHaveBeenCalled();
   });
   it('should throw a error when call a http post function', async () => {
     spyOn(httpClient, 'post').and.returnValue(
@@ -86,7 +78,6 @@ describe('DefaultCrudService', () => {
     );
     await service.httpPost('auth', {}).catch((err) => {
       void expect(err.error[0].message).toEqual('error');
-      void expect(fullEndpointSpy).toHaveBeenCalled();
     });
   });
   it('should throw a error when call a http post function and error a single error', async () => {
@@ -97,7 +88,6 @@ describe('DefaultCrudService', () => {
     );
     await service.httpPost('auth', {}).catch((err) => {
       void expect(err.error.message).toEqual('error');
-      void expect(fullEndpointSpy).toHaveBeenCalled();
     });
   });
   it('should throw a error when call a http put function and error a single error', async () => {
@@ -108,7 +98,6 @@ describe('DefaultCrudService', () => {
     );
     await service.httpPut('auth', {}).catch((err) => {
       void expect(err.error.message).toEqual('error');
-      void expect(fullEndpointSpy).toHaveBeenCalled();
     });
   });
   it('should throw a error when call a http put function', async () => {
@@ -119,7 +108,6 @@ describe('DefaultCrudService', () => {
     );
     await service.httpPut('auth', {}).catch((err) => {
       void expect(err.error[0].message).toEqual('error');
-      void expect(fullEndpointSpy).toHaveBeenCalled();
     });
   });
   it('should throw a error when call a http delete function', async () => {
@@ -130,7 +118,6 @@ describe('DefaultCrudService', () => {
     );
     await service.httpDelete('auth').catch((err) => {
       void expect(err.error[0].message).toEqual('error');
-      void expect(fullEndpointSpy).toHaveBeenCalled();
     });
   });
 });

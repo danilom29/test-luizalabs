@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ClientCreateDto } from './dto/client-create.dto';
@@ -22,11 +24,11 @@ export class ClientsService {
       throw new HttpException({ message: 'Erro ao cadastrar.' }, HttpStatus.BAD_REQUEST);
     }
   }
-  async findByEmail(email: string, id?:number): Promise<IClient> {
+  async findByEmail(email: string, id?: number): Promise<IClient> {
     try {
       const where: any = {
         email
-      }
+      };
       if (id) {
         where.id = Not(id);
       }
@@ -39,11 +41,11 @@ export class ClientsService {
       throw new HttpException(error, HttpStatus.BAD_REQUEST);
     }
   }
-  async findByCpf(cpf: number, id?:number): Promise<IClient> {
+  async findByCpf(cpf: number, id?: number): Promise<IClient> {
     try {
       const where: any = {
         cpf
-      }
+      };
       if (id) {
         where.id = Not(id);
       }
