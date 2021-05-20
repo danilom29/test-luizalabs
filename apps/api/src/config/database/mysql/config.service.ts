@@ -1,6 +1,7 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Client } from 'apps/api/src/modules/clients/entities/client.entity';
+import { Product } from 'apps/api/src/modules/products/entities/product.entity';
 
 export const mySqlConfigService: TypeOrmModuleOptions = {
   type: 'mysql',
@@ -10,7 +11,7 @@ export const mySqlConfigService: TypeOrmModuleOptions = {
   database: process.env.TYPEORM_DATABASE,
   password: process.env.TYPEORM_PASSWORD,
   logging: true,
-  entities: [Client],
+  entities: [Client, Product],
   cli: {
     migrationsDir: 'src/database/migrations',
   },
